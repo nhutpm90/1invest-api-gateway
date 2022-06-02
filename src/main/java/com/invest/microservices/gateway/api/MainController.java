@@ -9,16 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MainController {
 
-//	@Value("${app.env}")
-//    private String env;
-//	
-//	@GetMapping("/live-check")
-//	public String liveCheck() throws Exception {
-//		return "1Invest Api Gateway Server:: " + new Date() + " - env:: " + env;
-//	}
+	@Value("${app.env}")
+    private String env;
 	
 	@GetMapping("/live-check")
 	public String liveCheck() throws Exception {
-		return "1Invest Api Gateway Server:: " + new Date();
+		return "1Invest Api Gateway Server:: " + new Date() + " - env:: " + env;
 	}
 }

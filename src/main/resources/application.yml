@@ -1,0 +1,37 @@
+server:
+  port: 8080
+      
+---
+  
+spring:
+  config:
+    activate:
+      on-profile: dev
+zuul:
+  routes: 
+    mainlogic:
+      path: /1invest-main-logic/**
+      sensitiveHeaders: 
+      service-id: 1invest-main-logic
+    notification:
+      path: /1invest-notification/**
+      sensitiveHeaders: 
+      service-id: 1invest-notification
+    auth:
+      path: /auth/**
+      sensitiveHeaders: 
+      service-id: 1invest-auth
+
+---
+  
+spring:
+  config:
+    activate:
+      on-profile: test
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
